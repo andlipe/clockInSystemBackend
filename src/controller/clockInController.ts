@@ -49,7 +49,7 @@ class ClockInController {
     const actualTime = `${getHours(timeInMiliSeconds)}:${getMinutes(
       timeInMiliSeconds,
     )}`;
-    const createNewClockIn = await ClockIn.findByIdAndUpdate(
+    await ClockIn.findByIdAndUpdate(
       { _id: id },
       { $push: { registers: actualTime } },
     );
@@ -60,16 +60,22 @@ class ClockInController {
     return searchClockIn;
   }
 
-/*public async modifyOneRegister(
+public async modifyOneRegister(
     id: string,
-    actualTime: string,
     newTime: string,
   ): Promise<any> {
-    const searchClockInById = await ClockIn.findByIdAndUpdate(
-      { _id: id },
-      { $pull: { registers: actualTime } },
+
+    console.log(id);
+
+    await ClockIn.findOneAndUpdate(
+      { _id: id },{$set: {registers: newTime}}
     );
-  }*/
+
+    const searchClockIn = await ClockIn.findById({
+      _id: id
+    });
+    return searchClockIn
+  }
 
   public async deleteRegister(id: string, time: [string]) {
     const deleteRegister = await ClockIn.findByIdAndUpdate(

@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const mongooseConnect = () => {
   mongoose
     .connect(
-      'mongodb+srv://user:senha@host/clockIn?retryWrites=true&w=majority',
+      'mongodb+srv://andremoura:king2019@cluster0.ni3q8.mongodb.net/clockIn?retryWrites=true&w=majority',
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
