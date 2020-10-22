@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
 
 const mongooseConnect = () => {
+
   mongoose
     .connect(
-      'mongodb+srv://andremoura:king2019@cluster0.ni3q8.mongodb.net/clockIn?retryWrites=true&w=majority',
+      `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_HOST}/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,

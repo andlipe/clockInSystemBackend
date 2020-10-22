@@ -1,6 +1,7 @@
 import express, { json } from 'express';
 import cors from 'cors';
 import routes from './routes';
+require('dotenv').config();
 import mongooseConnect from './connection';
 
 const app = express();
